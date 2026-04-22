@@ -1,0 +1,117 @@
+-- Campus Hub — Relational Schema
+-- Database: MySQL 8.0.12+
+CREATE DATABASE IF NOT EXISTS campus_hub;
+USE campus_hub;
+-- Department
+CREATE TABLE Department (
+    DeptID INT NOT NULL AUTO_INCREMENT,
+    DeptCode VARCHAR(10) NOT NULL UNIQUE,
+    DeptName VARCHAR(100) NOT NULL,
+    PRIMARY KEY (DeptID)
+);
+-- User
+CREATE TABLE User (
+    UserID INT NOT NULL AUTO_INCREMENT,
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    JoinDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PwdHash VARCHAR(255) NOT NULL,
+    DeptID INT,
+    PRIMARY KEY (UserID),
+    FOREIGN KEY (DeptID) REFERENCES Department(DeptID) ON DELETE
+    SET NULL
+);
+-- Admin
+CREATE TABLE `Admin` (
+    UserID INT NOT NULL,
+    Permissions VARCHAR(255) NOT NULL,
+    PRIMARY KEY (UserID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
+);
+-- Moderator
+CREATE TABLE Moderator (
+    UserID INT NOT NULL,
+    PRIMARY KEY (UserID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
+);
+-- Course
+CREATE TABLE Course (
+    CourseID INT NOT NULL AUTO_INCREMENT,
+    CourseCode VARCHAR(20) NOT NULL UNIQUE,
+    CourseTitle VARCHAR(150) NOT NULL,
+    CreditHours INT NOT NULL,
+    PRIMARY KEY (CourseID)
+);
+-- Enrolled_In
+CREATE TABLE Enrolled_In (
+    UserID INT NOT NULL,
+    CourseID INT NOT NULL,
+    Semester VARCHAR(20) NOT NULL,
+    Year INT NOT NULL,
+    PRIMARY KEY (UserID, CourseID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID) ON DELETE CASCADE
+);
+-- Moderates
+CREATE TABLE Moderates (
+    UserID INT NOT NULL,
+    CourseID INT NOT NULL,
+    PRIMARY KEY (UserID, CourseID),
+    FOREIGN KEY (UserID) REFERENCES Moderator(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID) ON DELETE CASCADE
+);
+-- Follows
+CREATE TABLE Follows (
+    FollowerID INT NOT NULL,
+    FolloweeID INT NOT NULL,
+    PRIMARY KEY (FollowerID, FolloweeID),
+    FOREIGN KEY (FollowerID) REFERENCES User(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (FolloweeID) REFERENCES User(UserID) ON DELETE CASCADE,
+    CHECK (FollowerID <> FolloweeID)
+);
+-- Post
+CREATE TABLE Post (
+    PostID INT NOT NULL AUTO_INCREMENT,
+    Content TEXT NOT NULL,
+    Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    VisibilityLevel ENUM('public', 'department', 'private') NOT NULL DEFAULT 'public',
+    UserID INT NOT NULL,
+    PRIMARY KEY (PostID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
+);
+-- Comment (includes Replies_To via ParentID)
+CREATE TABLE Comment (
+    CommentID INT NOT NULL AUTO_INCREMENT,
+    ParentID INT DEFAULT NULL,
+    PostID INT NOT NULL,
+    Content TEXT NOT NULL,
+    Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UserID INT NOT NULL,
+    PRIMARY KEY (CommentID),
+    FOREIGN KEY (ParentID) REFERENCES Comment(CommentID) ON DELETE CASCADE,
+    FOREIGN KEY (PostID) REFERENCES Post(PostID) ON DELETE CASCADE,
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
+);
+-- Message
+CREATE TABLE `Message` (
+    MessageID INT NOT NULL AUTO_INCREMENT,
+    SenderID INT NOT NULL,
+    ReceiverID INT NOT NULL,
+    Content TEXT NOT NULL,
+    Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (MessageID),
+    FOREIGN KEY (SenderID) REFERENCES User(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (ReceiverID) REFERENCES User(UserID) ON DELETE CASCADE,
+    CHECK (SenderID <> ReceiverID)
+);
+-- Votes_On_Post
+CREATE TABLE Votes_On_Post (
+    UserID INT NOT NULL,
+    PostID INT NOT NULL,
+    VoteType ENUM('upvote', 'downvote') NOT NULL,
+    Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (UserID, PostID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (PostID) REFERENCES Post(PostID) ON DELETE CASCADE
+);
