@@ -21,117 +21,143 @@ VALUES (1, 'CSE', 'Computer Science and Engineering'),
 -- -------------------------------------------------------------
 INSERT INTO User (
         UserID,
+        Username,
         Email,
         FirstName,
         LastName,
+        Bio,
         JoinDate,
         PwdHash,
         DeptID
     )
 VALUES (
         1,
+        'alice',
         'alice@bracu.ac.bd',
         'Alice',
         'Rahman',
+        'CSE major. Coffee-powered.',
         '2024-01-10 09:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         1
     ),
     (
         2,
+        'bob',
         'bob@bracu.ac.bd',
         'Bob',
         'Hossain',
+        'Always down to study.',
         '2024-01-11 10:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         1
     ),
     (
         3,
+        'carol',
         'carol@bracu.ac.bd',
         'Carol',
         'Islam',
+        'EEE student. Lab life.',
         '2024-01-12 11:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         2
     ),
     (
         4,
+        'david',
         'david@bracu.ac.bd',
         'David',
         'Khan',
+        'Business by day, gamer by night.',
         '2024-01-13 12:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         3
     ),
     (
         5,
+        'eva',
         'eva@bracu.ac.bd',
         'Eva',
         'Chowdhury',
+        'Love databases and memes.',
         '2024-01-14 13:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         1
     ),
     (
         6,
+        'farhan',
         'farhan@bracu.ac.bd',
         'Farhan',
         'Ahmed',
+        'English lit fan. Chill vibes.',
         '2024-01-15 14:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         4
     ),
     (
         7,
+        'grace',
         'grace@bracu.ac.bd',
         'Grace',
         'Begum',
+        'EEE club organizer.',
         '2024-01-16 15:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         2
     ),
     (
         8,
+        'hassan',
         'hassan@bracu.ac.bd',
         'Hassan',
         'Miah',
+        'Physics nerd.',
         '2024-01-17 16:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         5
     ),
     (
         9,
+        'irene',
         'irene@bracu.ac.bd',
         'Irene',
         'Sultana',
+        'Marketing major. Coffee explorer.',
         '2024-01-18 17:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         3
     ),
     (
         10,
+        'james',
         'james@bracu.ac.bd',
         'James',
         'Uddin',
+        'AI enthusiast.',
         '2024-01-19 18:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         1
     ),
     (
         11,
+        'admin',
         'admin@bracu.ac.bd',
         'Admin',
         'User',
+        'Platform admin.',
         '2024-01-01 08:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         NULL
     ),
     (
         12,
+        'mod',
         'mod@bracu.ac.bd',
         'Mod',
         'User',
+        'Keeping the yard clean.',
         '2024-01-02 08:00:00',
         '$2b$12$KIXuBvh1Z8v1Q1Q1Q1Q1QeQ1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q1Q',
         1
