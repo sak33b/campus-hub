@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Epilogue", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-screen bg-background text-ink font-body">
+    <main class="min-h-screen flex flex-col md:flex-row antialiased">
+        <section
+            class="w-full md:w-2/5 lg:w-1/3 bg-primary border-thick md:border-r-4 md:border-b-0 border-b-4 border-l-0 border-t-0 p-8 flex flex-col justify-between relative overflow-hidden">
+            <span
+                class="material-symbols-outlined absolute -right-20 -top-20 text-[300px] text-primary/40 rotate-12 pointer-events-none">campaign</span>
+            <div class="relative z-10">
+                <div class="font-display text-surface text-3xl uppercase italic tracking-tighter mb-16">CampusHub</div>
+                <h1 class="font-display text-surface text-5xl md:text-6xl uppercase leading-none mb-8">
+                    Join
+                    <br />
+                    The
+                    <br />
+                    Roster.
+                </h1>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 bg-primary/90 p-4 border-thick shadow-soft transform -rotate-1">
+                        <span class="material-symbols-outlined text-accent text-3xl">forum</span>
+                        <span class="font-bold text-surface uppercase">Unfiltered Chatter</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 bg-primary/90 p-4 border-thick shadow-soft transform rotate-1 ml-4">
+                        <span class="material-symbols-outlined text-accent text-3xl">bolt</span>
+                        <span class="font-bold text-surface uppercase">Real-Time Updates</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-primary/90 p-4 border-thick shadow-soft transform -rotate-2">
+                        <span class="material-symbols-outlined text-accent text-3xl">local_fire_department</span>
+                        <span class="font-bold text-surface uppercase">Exclusive Drops</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative z-10 mt-16 pt-8 border-t-4 border-surface/40">
+                <p class="font-bold text-surface uppercase">
+                    Already verified?
+                    <a class="text-accent underline decoration-4 underline-offset-4" href="/login">Sign in here</a>
+                </p>
+            </div>
+        </section>
+        <section class="w-full md:w-3/5 lg:w-2/3 flex items-center justify-center p-6 md:p-12 relative">
+            <div class="absolute inset-0 z-0 opacity-10"
+                style="background-image: radial-gradient(#1a1b22 2px, transparent 2px); background-size: 24px 24px;">
+            </div>
+            <div class="w-full max-w-xl bg-surface border-thick shadow-hard p-8 md:p-10 relative z-10">
+                <div class="mb-10 flex justify-between items-end border-b-4 border-ink pb-4">
+                    <div>
+                        <h2 class="font-display text-4xl uppercase text-ink">Claim Your Spot</h2>
+                        <p class="font-medium text-muted mt-2">Step 1 of 1: Basic Info</p>
+                    </div>
+                    <div class="font-display text-5xl text-muted">01</div>
+                </div>
+                <form id="register-form" class="space-y-6">
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Full Name</label>
+                        <div class="relative">
+                            <span
+                                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-muted">person</span>
+                            <input id="register-fullname"
+                                class="w-full bg-surface border-thick p-4 pl-12 font-medium text-ink placeholder:text-muted focus:outline-none"
+                                placeholder="Jordan Doe" required />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Email</label>
+                        <div class="relative">
+                            <span
+                                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-muted">mail</span>
+                            <input id="register-email"
+                                class="w-full bg-surface border-thick p-4 pl-12 font-medium text-ink placeholder:text-muted focus:outline-none"
+                                placeholder="jordan@example.com" type="email" required />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Department</label>
+                        <div class="relative">
+                            <select id="register-dept"
+                                class="w-full bg-surface border-thick p-4 font-medium text-ink appearance-none focus:outline-none">
+                                <option value="">Select Department</option>
+                            </select>
+                            <span
+                                class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-ink pointer-events-none">arrow_drop_down</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Password</label>
+                        <div class="relative">
+                            <span
+                                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-muted">lock</span>
+                            <input id="register-password"
+                                class="w-full bg-surface border-thick p-4 pl-12 font-medium text-ink placeholder:text-muted focus:outline-none"
+                                placeholder="Create a strong password" type="password" required />
+                        </div>
+                    </div>
+                    <div id="register-error" class="text-sm font-bold text-red-600 hidden"></div>
+                    <div class="pt-6 mt-6 border-t-4 border-ink border-dashed">
+                        <button
+                            class="w-full bg-accent text-ink font-display text-2xl uppercase py-5 px-8 border-thick shadow-hard btn-press flex justify-center items-center gap-3"
+                            type="submit">
+                            Continue to the Yard
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/static/js/pages/register.js"></script>
+</body>
+
+</html>

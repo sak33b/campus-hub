@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Notifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-full bg-background text-ink font-body">
+    <div id="topnav"></div>
+    <main class="max-w-[1200px] mx-auto flex gap-6 pt-8 px-4 items-start pb-20">
+        <div id="leftnav"></div>
+        <section class="flex-1 flex justify-center">
+            <div class="w-full max-w-[600px] flex flex-col">
+                <div class="flex items-center justify-between mb-8">
+                    <h1
+                        class="text-[32px] font-extrabold uppercase tracking-tight text-ink border-b-4 border-primary pb-2 inline-block">
+                        Alerts
+                    </h1>
+                    <button class="text-[13px] font-semibold text-muted tracking-wide uppercase" type="button">Mark all
+                        read</button>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="bg-surface border-thick rounded p-4 flex gap-4 items-start shadow-hard relative">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-accent"></div>
+                        <div class="w-12 h-12 rounded border-2 border-ink shrink-0 overflow-hidden bg-background mt-1">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-baseline justify-between gap-2 mb-1">
+                                <p class="text-[15px] font-medium"><span class="font-bold">Alex Chen</span> replied to
+                                    your post</p>
+                                <span class="text-[13px] font-semibold text-muted">2m</span>
+                            </div>
+                            <p
+                                class="text-ink font-bold text-[15px] mb-2 bg-background p-2 border-l-2 border-ink italic">
+                                &quot;Bro, the library is packed... don&apos;t even bother.&quot;
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-surface border-thick rounded p-4 flex gap-4 items-start shadow-hard relative">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-accent"></div>
+                        <div
+                            class="w-12 h-12 rounded border-2 border-ink shrink-0 overflow-hidden bg-accent flex items-center justify-center mt-1 text-ink">
+                            <span class="material-symbols-outlined text-[28px]"
+                                style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center min-h-[48px]">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <p class="text-[15px] font-medium">Your post hit <span class="font-bold">1.5k</span>
+                                    upvotes!</p>
+                                <span class="text-[13px] font-semibold text-muted">1h</span>
+                            </div>
+                            <p class="text-[13px] font-semibold text-muted mt-1 truncate">
+                                &quot;Petition to make Friday classes illegal...&quot;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="rightsidebar"></div>
+    </main>
+    <script type="module" src="/static/js/pages/notifications.js"></script>
+</body>
+
+</html>

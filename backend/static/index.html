@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-full bg-background text-ink font-body">
+    <div id="topnav"></div>
+    <main class="max-w-[1200px] mx-auto flex gap-6 pt-8 px-4 items-start pb-20">
+        <div id="leftnav"></div>
+        <section class="w-[600px] shrink-0 flex flex-col gap-6">
+            <div class="bg-surface border-thick rounded shadow-hard p-4">
+                <form id="create-post-form" class="flex flex-col gap-3">
+                    <textarea id="create-post-content" placeholder="Start a thread..."
+                        class="w-full min-h-[100px] border-thick rounded p-3 text-ink placeholder:text-muted focus:outline-none"></textarea>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-primary text-surface border-thick rounded px-6 py-2 font-bold uppercase shadow-hard btn-press"
+                            type="submit">
+                            Post
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="flex items-center gap-4 pb-2 border-b-4 border-ink">
+                <button id="sort-hot"
+                    class="font-bold text-lg uppercase flex items-center gap-1 pb-1 -mb-[6px] text-primary border-b-4 border-primary"
+                    type="button">
+                    <span class="material-symbols-outlined">local_fire_department</span>
+                    Hot
+                </button>
+                <button id="sort-new" class="font-bold text-lg uppercase flex items-center gap-1 pb-1 text-muted"
+                    type="button">
+                    <span class="material-symbols-outlined">schedule</span>
+                    New
+                </button>
+                <button id="sort-top" class="font-bold text-lg uppercase flex items-center gap-1 pb-1 text-muted"
+                    type="button">
+                    <span class="material-symbols-outlined">keyboard_double_arrow_up</span>
+                    Top
+                </button>
+            </div>
+            <div id="feed-posts" class="flex flex-col gap-6"></div>
+        </section>
+        <div id="rightsidebar"></div>
+    </main>
+    <script type="module" src="/static/js/pages/feed.js"></script>
+</body>
+
+</html>

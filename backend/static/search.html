@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-full bg-background text-ink font-body">
+    <div id="topnav"></div>
+    <main class="max-w-[1200px] mx-auto flex gap-6 pt-8 px-4 items-start pb-20">
+        <div id="leftnav"></div>
+        <section class="w-[600px] shrink-0 flex flex-col gap-6">
+            <div class="bg-surface border-thick rounded shadow-hard p-4 flex flex-col gap-4">
+                <div>
+                    <label class="font-bold uppercase text-xs">Search by name</label>
+                    <input id="search-query" class="w-full border-thick rounded p-3 mt-2"
+                        placeholder="Search users..." />
+                </div>
+                <div>
+                    <label class="font-bold uppercase text-xs">Department</label>
+                    <input id="search-department" class="w-full border-thick rounded p-3 mt-2"
+                        placeholder="Computer Science" />
+                </div>
+            </div>
+            <div id="search-results" class="flex flex-col gap-4"></div>
+        </section>
+        <div id="rightsidebar"></div>
+    </main>
+    <script type="module" src="/static/js/pages/search.js"></script>
+</body>
+
+</html>
