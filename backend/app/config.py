@@ -27,4 +27,4 @@ JWT_SECRET = get_env("JWT_SECRET", "dev-secret-change-me")
 JWT_ALGORITHM = get_env("JWT_ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(get_env("ACCESS_TOKEN_EXPIRE_MINUTES", "1440"))
 
-FRONTEND_ORIGIN = get_env("FRONTEND_ORIGIN", "http://localhost:3000")
+FRONTEND_ORIGIN = get_env("FRONTEND_ORIGIN", "http://localhost:8000")

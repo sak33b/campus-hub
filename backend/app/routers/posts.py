@@ -9,7 +9,7 @@ from app.schemas import PostCreate, PostOut
 from app.utils.auth import get_current_user
 
 router = APIRouter(prefix="/posts", tags=["posts"])
-optional_oauth = OAuth2PasswordBearer(tokenUrl="/auth/login", auto_error=False)
+optional_oauth = OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)
 
 
 def _sort_clause(sort):
