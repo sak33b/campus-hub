@@ -14,7 +14,7 @@ async def init_pool():
             user=DB_USER,
             password=DB_PASSWORD,
             db=DB_NAME,
-            autocommit=False,
+            autocommit=True,
             minsize=1,
             maxsize=10,
             charset="utf8mb4",
@@ -34,4 +34,8 @@ async def get_db():
     if _pool is None:
         await init_pool()
     async with _pool.acquire() as conn:
-        yield conn
+        try:
+            yield conn
+        finally:
+            # Ensure no open transaction leaks back into the pool.
+            await conn.rollback()
