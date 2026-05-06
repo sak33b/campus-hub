@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-full bg-background text-ink font-body">
+    <div id="topnav"></div>
+    <main class="max-w-[1200px] mx-auto flex gap-6 pt-8 px-4 items-start pb-20">
+        <div id="leftnav"></div>
+        <section class="w-[600px] shrink-0 flex flex-col gap-6">
+            <div class="bg-surface border-thick rounded shadow-hard overflow-hidden">
+                <div class="h-[160px] w-full banner-stripes border-b-2 border-ink"></div>
+                <div class="relative px-6 pb-6 pt-16">
+                    <div class="absolute -top-12 left-6">
+                        <img id="profile-avatar"
+                            class="size-24 rounded-full object-cover bg-background border-4 border-ink"
+                            src=""
+                            alt="Profile avatar" />
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-end justify-between">
+                        <div class="flex-1">
+                            <h1 id="profile-name"
+                                class="text-3xl font-extrabold uppercase tracking-tight text-ink leading-none"></h1>
+                            <p id="profile-username" class="text-muted font-semibold"></p>
+                            <p id="profile-dept" class="text-sm font-semibold text-muted mt-1"></p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button id="profile-follow"
+                                class="hidden bg-surface text-primary border-thick rounded px-6 py-2 font-bold uppercase shadow-hard btn-press"
+                                type="button">
+                                Follow
+                            </button>
+                            <a id="profile-message"
+                                class="items-center gap-2 bg-surface text-ink border-thick rounded px-6 py-2 font-bold uppercase shadow-hard btn-press"
+                                style="display:none"
+                                href="#">
+                                <span class="material-symbols-outlined text-[18px]">mail</span>
+                                Message
+                            </a>
+                            <button id="profile-edit"
+                                class="hidden bg-accent text-ink border-thick rounded px-6 py-2 font-bold uppercase shadow-hard btn-press"
+                                type="button">
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                    <p id="profile-bio" class="text-ink font-medium mt-4"></p>
+                </div>
+                <div class="grid grid-cols-3 divide-x-4 divide-ink border-t-4 border-ink bg-background text-center">
+                    <div class="p-4">
+                        <div id="profile-stat-karma" class="text-2xl font-extrabold text-ink">—</div>
+                        <div class="text-xs font-semibold uppercase text-muted tracking-wide">Karma</div>
+                    </div>
+                    <div class="p-4">
+                        <div id="profile-stat-class" class="text-2xl font-extrabold text-ink">—</div>
+                        <div class="text-xs font-semibold uppercase text-muted tracking-wide">Class</div>
+                    </div>
+                    <div class="p-4">
+                        <div id="profile-stat-major" class="text-2xl font-extrabold text-ink">—</div>
+                        <div class="text-xs font-semibold uppercase text-muted tracking-wide">Major</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-8 border-b-4 border-ink">
+                <button class="pb-3 px-2 font-bold uppercase text-lg text-primary border-b-4 border-primary -mb-[4px]"
+                    type="button">
+                    Posts
+                </button>
+                <button class="pb-3 px-2 font-bold uppercase text-lg text-muted" type="button">Comments</button>
+                <button class="pb-3 px-2 font-bold uppercase text-lg text-muted" type="button">Saved</button>
+            </div>
+            <div id="profile-edit-form" class="hidden bg-surface border-thick rounded shadow-hard p-6">
+                <form id="profile-form" class="space-y-4">
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">First Name</label>
+                        <input id="profile-first-name"
+                            class="w-full bg-surface border-thick p-3 font-medium text-ink" />
+                    </div>
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Last Name</label>
+                        <input id="profile-last-name" class="w-full bg-surface border-thick p-3 font-medium text-ink" />
+                    </div>
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Bio</label>
+                        <textarea id="profile-bio-input"
+                            class="w-full bg-surface border-thick p-3 font-medium text-ink min-h-[100px]"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-ink uppercase mb-2">Department</label>
+                        <select id="profile-dept-input" class="w-full bg-surface border-thick p-3 font-medium text-ink">
+                            <option value="">Select Department</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-end gap-3">
+                        <button id="profile-cancel" class="text-xs font-bold uppercase text-muted"
+                            type="button">Cancel</button>
+                        <button
+                            class="bg-primary text-surface border-thick rounded px-4 py-2 text-xs font-bold uppercase shadow-hard btn-press"
+                            type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="profile-posts" class="flex flex-col gap-6"></div>
+        </section>
+        <div id="rightsidebar"></div>
+    </main>
+    <script type="module" src="/static/js/pages/profile.js"></script>
+</body>
+
+</html>

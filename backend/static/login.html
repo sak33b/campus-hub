@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Epilogue", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-screen bg-background text-ink font-body flex items-center justify-center p-4">
+    <main class="w-full max-w-md relative">
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-accent border-thick shadow-hard -z-10 transform rotate-12">
+        </div>
+        <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-primary border-thick shadow-hard -z-10 transform -rotate-6">
+        </div>
+        <div class="bg-surface border-thick shadow-hard p-8 flex flex-col gap-8">
+            <div class="text-center">
+                <h1 class="font-display text-2xl uppercase italic tracking-tight mb-2 text-primary">CampusHub</h1>
+                <p class="font-medium text-muted">Enter the yard. Connect with your campus.</p>
+            </div>
+            <form id="login-form" class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2 relative">
+                    <label class="font-bold text-xs uppercase pl-1">University Email</label>
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-muted">school</span>
+                        <input id="login-email"
+                            class="w-full pl-12 pr-4 py-4 bg-surface border-thick shadow-soft font-medium text-ink placeholder:text-muted focus:outline-none focus:bg-accent/30"
+                            placeholder="you@example.com" type="email" required />
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-end pl-1">
+                        <label class="font-bold text-xs uppercase">Password</label>
+                        <span class="text-xs font-bold text-primary">Forgot?</span>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-muted">key</span>
+                        <input id="login-password"
+                            class="w-full pl-12 pr-4 py-4 bg-surface border-thick shadow-soft font-medium text-ink placeholder:text-muted focus:outline-none focus:bg-accent/30"
+                            placeholder="••••••••" type="password" required />
+                    </div>
+                </div>
+                <div id="login-error" class="text-sm font-bold text-red-600 hidden"></div>
+                <button
+                    class="mt-2 w-full bg-primary text-surface border-thick py-4 shadow-hard btn-press flex justify-center items-center gap-2 uppercase font-bold"
+                    type="submit">
+                    Log In
+                    <span class="material-symbols-outlined">login</span>
+                </button>
+            </form>
+            <div class="mt-2 pt-6 border-t-4 border-muted text-center">
+                <p class="font-medium text-muted">New to the campus?</p>
+                <a href="/register"
+                    class="inline-block mt-2 font-bold text-ink bg-accent px-6 py-3 border-thick shadow-soft btn-press uppercase">Join
+                    the Yard</a>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="/static/js/pages/login.js"></script>
+</body>
+
+</html>

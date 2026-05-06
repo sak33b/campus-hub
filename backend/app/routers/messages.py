@@ -29,7 +29,17 @@ class ConnectionManager:
     async def send_personal(self, user_id, payload):
         if user_id not in self.active:
             return
-        message = json.dumps(payload)
+        # Convert datetime objects to ISO format strings for JSON serialization
+        def serialize_datetime(obj):
+            if isinstance(obj, dict):
+                return {k: serialize_datetime(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [serialize_datetime(item) for item in obj]
+            elif hasattr(obj, 'isoformat'):
+                return obj.isoformat()
+            return obj
+        
+        message = json.dumps(serialize_datetime(payload))
         for ws in list(self.active[user_id]):
             await ws.send_text(message)
 

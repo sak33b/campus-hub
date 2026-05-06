@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Messages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-full bg-background text-ink font-body">
+    <div id="topnav"></div>
+    <main class="max-w-[1200px] mx-auto flex gap-6 pt-8 px-4 items-start pb-20">
+        <div id="leftnav"></div>
+        <section class="w-[600px] shrink-0 bg-surface border-thick rounded shadow-hard p-8">
+            <h1 class="font-extrabold text-3xl uppercase text-ink mb-4">Messages</h1>
+            <p class="font-medium text-muted mb-6">Open a profile and start a direct conversation from there.</p>
+            <a href="/search"
+                class="inline-flex items-center gap-2 bg-primary text-surface border-thick rounded px-5 py-3 font-bold uppercase shadow-hard btn-press">
+                <span class="material-symbols-outlined">person_search</span>
+                Find People
+            </a>
+        </section>
+    </main>
+    <script type="module" src="/static/js/pages/messages.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusHub | Conversation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0033a0",
+                        accent: "#ffc72c",
+                        background: "#f8fafc",
+                        surface: "#ffffff",
+                        ink: "#0f172a",
+                        muted: "#64748b",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="min-h-full bg-background text-ink font-body">
+    <div id="topnav"></div>
+    <main class="flex h-[calc(100vh-76px)]">
+        <aside class="w-[320px] bg-surface border-r-4 border-ink flex flex-col shrink-0">
+            <div class="p-6 border-b-4 border-ink flex flex-col gap-4 shrink-0">
+                <h1 class="text-2xl font-extrabold uppercase text-ink tracking-tight font-display">Messages</h1>
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted">search</span>
+                    <input id="message-search"
+                        class="w-full h-10 pl-10 pr-4 bg-background border-2 border-ink rounded text-[15px] font-medium text-ink placeholder:text-muted focus:outline-none focus:ring-0 focus:border-primary shadow-soft"
+                        placeholder="Search chats..." type="text" />
+                </div>
+            </div>
+            <div id="message-user-list" class="flex-1 overflow-y-auto"></div>
+        </aside>
+        <section class="flex-1 flex flex-col bg-background">
+            <header class="h-[88px] shrink-0 border-b-4 border-ink bg-surface flex items-center justify-between px-8">
+                <div class="flex items-center gap-4">
+                    <div class="size-14 rounded border-2 border-ink bg-background shadow-soft"></div>
+                    <div class="flex flex-col">
+                        <h2 id="message-active-name"
+                            class="text-2xl font-extrabold uppercase text-ink tracking-tight font-display leading-none mb-1">
+                        </h2>
+                        <div class="flex items-center gap-2">
+                            <div class="size-2.5 rounded-full bg-green-500 border border-ink"></div>
+                            <span class="text-[13px] font-semibold text-muted uppercase tracking-wider">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div id="message-list" class="flex-1 overflow-y-auto p-8 flex flex-col gap-6"></div>
+            <footer class="shrink-0 bg-surface border-t-4 border-ink p-6">
+                <form id="message-form" class="flex items-end gap-4 max-w-4xl mx-auto">
+                    <div class="flex-1 relative">
+                        <textarea id="message-draft"
+                            class="w-full bg-background border-4 border-ink rounded p-4 pr-12 text-[16px] font-medium text-ink placeholder:text-muted focus:outline-none focus:ring-0 focus:border-primary shadow-hard resize-none min-h-[64px]"
+                            placeholder="Type a message..." rows="1"></textarea>
+                    </div>
+                    <button
+                        class="shrink-0 h-[64px] px-8 bg-primary border-4 border-ink rounded text-surface font-bold text-[15px] uppercase tracking-wide shadow-hard btn-press flex items-center gap-2"
+                        type="submit">
+                        Send
+                        <span class="material-symbols-outlined text-[20px]">send</span>
+                    </button>
+                </form>
+            </footer>
+        </section>
+    </main>
+    <script type="module" src="/static/js/pages/messages-thread.js"></script>
+</body>
+
+</html>

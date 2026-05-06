@@ -24,9 +24,9 @@ A full-stack campus social network with real-time direct messaging, built for st
 
 | Layer | Technology |
 |-------|------------|
-| Frontend | Next.js (React) |
+| Frontend | HTML/CSS/JS |
 | Backend | FastAPI |
-| Database | MySQL (aiomysql) |
+| Database | MySQL |
 | Real-time | WebSockets |
 
 ---
