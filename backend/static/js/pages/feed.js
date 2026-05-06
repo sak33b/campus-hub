@@ -15,7 +15,7 @@ const sortHot = qs("#sort-hot");
 const sortNew = qs("#sort-new");
 const sortTop = qs("#sort-top");
 
-loadLayout({ activeNav: "/" }).then(init);
+loadLayout({ activeNav: "/", showTrending: false }).then(init);
 
 async function init() {
     bindSortButtons();

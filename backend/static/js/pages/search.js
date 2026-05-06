@@ -1,5 +1,5 @@
 import { apiFetch } from "../lib/api.js";
-import { loadLayout, renderTrending } from "../lib/layout.js";
+import { loadLayout } from "../lib/layout.js";
 import { qs } from "../lib/dom.js";
 import { getAvatarUrl } from "../lib/dicebear.js";
 
@@ -38,7 +38,6 @@ async function runSearch() {
         const data = await apiFetch(
             `/search/users?query=${encodeURIComponent(query)}&department=${encodeURIComponent(department)}`
         );
-        renderTrending([]);
         renderResults(data);
     } catch (error) {
         console.error(error);

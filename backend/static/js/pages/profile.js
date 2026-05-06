@@ -1,5 +1,5 @@
 import { apiFetch, getApiErrorMessage } from "../lib/api.js";
-import { loadLayout, renderTrending, requireAuth } from "../lib/layout.js";
+import { loadLayout, requireAuth } from "../lib/layout.js";
 import { buildPostCard } from "../lib/post-card.js";
 import { getPathSegment, qs } from "../lib/dom.js";
 import { getAvatarUrl } from "../lib/dicebear.js";
@@ -40,7 +40,6 @@ if (requireAuth()) {
 async function init() {
     await Promise.all([loadProfile(), loadCurrentUser(), loadDepartments()]);
     await loadFollowStatus();
-    renderTrending([]);
     renderProfile();
     renderPosts();
     bindEvents();

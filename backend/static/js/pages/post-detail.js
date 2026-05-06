@@ -1,5 +1,5 @@
 import { apiFetch, getApiErrorMessage } from "../lib/api.js";
-import { loadLayout, renderTrending } from "../lib/layout.js";
+import { loadLayout } from "../lib/layout.js";
 import { clearToken, getToken } from "../lib/auth.js";
 import { buildPostCard } from "../lib/post-card.js";
 import { getPathSegment, qs } from "../lib/dom.js";
@@ -21,7 +21,6 @@ loadLayout().then(init);
 
 async function init() {
     await loadData();
-    renderTrending([]);
     renderPost();
     renderComments();
     bindEvents();

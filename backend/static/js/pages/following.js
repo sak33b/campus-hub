@@ -1,5 +1,5 @@
 import { apiFetch } from "../lib/api.js";
-import { loadLayout, renderTrending, requireAuth } from "../lib/layout.js";
+import { loadLayout, requireAuth } from "../lib/layout.js";
 import { qs } from "../lib/dom.js";
 import { getAvatarUrl } from "../lib/dicebear.js";
 
@@ -27,7 +27,6 @@ async function init() {
         ]);
         following = followingData || [];
         followers = followersData || [];
-        renderTrending([]);
         bindEvents();
         renderTabs();
         renderList();
